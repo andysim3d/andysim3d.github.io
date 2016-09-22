@@ -25,9 +25,9 @@
 	    function motionHandler(event){
 		var motion = document.getElementById("position");
 		text = "";
-		text += "x moved: " + Math.rount(event.accelerationIncludingGravity.x + "deg<p>";
-		text += "y moved: " + Math.rount(event.accelerationIncludingGravity.y + "deg<p>";
-		text += "z moved: " + Math.rount(event.accelerationIncludingGravity.z + "deg<p>";
+		text += "x moved: " + Math.rount(event.accelerationIncludingGravity.x) + "deg<p>";
+		text += "y moved: " + Math.rount(event.accelerationIncludingGravity.y) + "deg<p>";
+		text += "z moved: " + Math.rount(event.accelerationIncludingGravity.z) + "deg<p>";
 		motion.innerHtml = text;
 	    }
 
