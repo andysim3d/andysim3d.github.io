@@ -25,10 +25,10 @@
 
 	    function motionHandler(event){
 		var motion = document.getElementById("position");
-		motion_text = "";
-		motion_text += "x moved: " + Math.rount(event.accelerationIncludingGravity.x) + "deg<p>";
-		motion_text += "y moved: " + Math.rount(event.accelerationIncludingGravity.y) + "deg<p>";
-		motion_text += "z moved: " + Math.rount(event.accelerationIncludingGravity.z) + "deg<p>";
+		motion_text = "hey</br>";
+		motion_text += "x moved: " + Math.round(event.accelerationIncludingGravity.x) + "deg<p>";
+		motion_text += "y moved: " + Math.round(event.accelerationIncludingGravity.y) + "deg<p>";
+		motion_text += "z moved: " + Math.round(event.accelerationIncludingGravity.z) + "deg<p>";
 		motion.innerHTML = motion_text;
 	    }
 
