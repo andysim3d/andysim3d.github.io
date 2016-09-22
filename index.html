@@ -10,6 +10,8 @@
     </head>  
     <body>  
         <div id="arrow"></div>  
+
+	<div id="position"></div>
     </body>  
     </html>  
       
@@ -18,6 +20,17 @@
         try {  
             var text = "";  
             window.addEventListener("deviceorientation", orientationHandler, false);  
+	    window.addEventListener("deviceMotion", motionHandler);
+
+	    function motionHandler(event){
+		var motion = document.getElementById("position");
+		text = "";
+		text += "x moved: " + Math.rount(event.accelerationIncludingGravity.x + "deg<p>";
+		text += "y moved: " + Math.rount(event.accelerationIncludingGravity.y + "deg<p>";
+		text += "z moved: " + Math.rount(event.accelerationIncludingGravity.z + "deg<p>";
+		motion.innerHtml = text;
+	    }
+
             function orientationHandler(event) {  
                 text = ""  
                 var arrow = document.getElementById("arrow");  
