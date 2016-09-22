@@ -20,7 +20,7 @@
         try {  
             var text = "";  
             window.addEventListener("deviceorientation", orientationHandler, false);  
-	    window.addEventListener("deviceMotion", motionHandler);
+	    window.addEventListener("deviceMotion", motionHandler, false);
 
 	    function motionHandler(event){
 		var motion = document.getElementById("position");
