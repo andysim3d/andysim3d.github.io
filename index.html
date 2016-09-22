@@ -29,7 +29,7 @@
 		motion_text += "x moved: " + Math.rount(event.accelerationIncludingGravity.x) + "deg<p>";
 		motion_text += "y moved: " + Math.rount(event.accelerationIncludingGravity.y) + "deg<p>";
 		motion_text += "z moved: " + Math.rount(event.accelerationIncludingGravity.z) + "deg<p>";
-		motion.innerHtml = motion_text;
+		motion.innerHTML = motion_text;
 	    }
 
             function orientationHandler(event) {  
