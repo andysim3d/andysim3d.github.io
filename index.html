@@ -38,7 +38,7 @@
 		ctx.strokeStyle  = 'rgb(255,255,255)';
 		
 		
-		ctx.arc(Math.round(x) + 10, Math.round(y) + 10, 10, 0, 2*Math.PI);
+		ctx.fillRect(Math.round(x) + 10, Math.round(y) + 10, 10, 10);
 		var motion = document.getElementById("position");
 		var x_motion = event.acceleration.x;
 		var y_motion = event.acceleration.y;
@@ -48,11 +48,10 @@
 		if (x < 0) x = 0;
 		if (y > max_y) y = max_y;
 		if (y < 0) y = 0;
-		ctx.strokeStyle  = 'rgb(0,0,0)';
-	
-		ctx.arc(Math.round(x) + 10, Math.round(y) + 10, 10, 0, 2*Math.PI);
+		ctx.fillStyle  = 'rgb(0,0,0)';
+		 ctx.fillRect(Math.round(x) + 10, Math.round(y) + 10, 10, 10);
 
-		ctx.stroke();
+
 		motion_text = "";
 		// // motion_text = "hey</br>";
 		// motion_text += "x moved: " + Math.round(event.acceleration.x) + "deg<p>";
