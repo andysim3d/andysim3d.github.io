@@ -32,6 +32,13 @@
 	    window.addEventListener("devicemotion", motionHandler, false);
 
 	    function motionHandler(event){
+		var c = document.getElementById("myCanvas");
+		var ctx = c.getContext("2d");
+		ctx.beginPath();
+		ctx.fillStyle = 'rgb(255,255,255)';
+		
+		
+		ctx.arc(Math.round(x) + 10, Math.round(y) + 10, 10, 0, 2*Math.PI);
 		var motion = document.getElementById("position");
 		var x_motion = event.acceleration.x;
 		var y_motion = event.acceleration.y;
@@ -41,11 +48,10 @@
 		if (x < 0) x = 0;
 		if (y > max_y) y = max_y;
 		if (y < 0) y = 0;
-		
-		var c = document.getElementById("myCanvas");
-		var ctx = c.getContext("2d");
-		ctx.beginPath();
+		ctx.fillStyle = 'rgb(0,0,0)';
+	
 		ctx.arc(Math.round(x) + 10, Math.round(y) + 10, 10, 0, 2*Math.PI);
+
 		ctx.stroke();
 		motion_text = "";
 		// // motion_text = "hey</br>";
