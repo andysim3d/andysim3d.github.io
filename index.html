@@ -11,15 +11,21 @@
     <body>  
         <div id="arrow"></div>  
 	<div id="position"></div>
-	<div>
-		<div id="point">.</div>
-	</div>
+	<canvas id="myCanvas" width="400" height="400" style="border:1px solid #000000;">
+	
+	</canvas>
+
+
     </body>  
     </html>  
       
       
     <script>  
         try {  
+        	var x = 0;
+        	var y = 0;
+        	var max_x = 380;
+        	var max_y = 380;
             var text = "";  
     	    var motion_text = "";
             window.addEventListener("deviceorientation", orientationHandler, false);  
@@ -27,10 +33,28 @@
 
 	    function motionHandler(event){
 		var motion = document.getElementById("position");
-		motion_text = "hey</br>";
-		motion_text += "x moved: " + Math.round(event.acceleration.x) + "deg<p>";
-		motion_text += "y moved: " + Math.round(event.acceleration.y) + "deg<p>";
-		motion_text += "z moved: " + Math.round(event.acceleration.z) + "deg<p>";
+		var x_motion = event.acceleration.x;
+		var y_motion = event.acceleration.y;
+		x += x_motion;
+		y += y_motion;
+		if (x > max_x) x = max_x;
+		if (x < 0) x = 0;
+		if (y > max_y) y = max_y;
+		if (y < 0) y = 0;
+		
+		var c = document.getElementById("myCanvas");
+		var ctx = c.getContext("2d");
+		ctx.beginPath();
+		ctx.arc(Math.round(x) + 10, Math.round(y) + 10, 2*Math.PI);
+		ctx.stroke();
+		// // motion_text = "hey</br>";
+		// motion_text += "x moved: " + Math.round(event.acceleration.x) + "deg<p>";
+		// motion_text += "y moved: " + Math.round(event.acceleration.y) + "deg<p>";
+		// motion_text += "z moved: " + Math.round(event.acceleration.z) + "deg<p>";
+		
+		
+		motion_text += "x moved: " + Math.round(x) + "deg<p>";
+		motion_text += "y moved: " + Math.round(y) + "deg<p>";
 		motion.innerHTML = motion_text;
 	    }
 
